@@ -12,9 +12,9 @@ class ImageArray:
         self.row = random.randint(minRow, maxRow)
         self.col = random.randint(minCol, maxCol)
 
-        self.imageArray = [[0 for i in range(self.col)] for i in range(self.row)]
+        self.imageArray = [[1 for i in range(self.col)] for i in range(self.row)]
 
-    
+        
     def printImageArray(self):
         print('row: ' + str(self.row))   # show row size
         print('col: ' + str(self.col))   # show col size
@@ -24,5 +24,6 @@ class ImageArray:
 
         for i in range(self.row):
             for j in range(self.col):
-                print('O', end=' ')
-            print()          
+                print(self.imageArray[i][j], end=' ')
+            print()
+            
