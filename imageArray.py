@@ -1,32 +1,28 @@
 import random
 
-def generateImageArray():
+minRow = 10
+maxRow = 20
 
-    minRow = 10
-    maxRow = 20
+minCol = 10
+maxCol = 20
 
-    minCol = 10
-    maxCol = 20
+class ImageArray:
+
+    def __init__(self):
+        self.row = random.randint(minRow, maxRow)
+        self.col = random.randint(minCol, maxCol)
+
+        self.imageArray = [[0 for i in range(self.col)] for i in range(self.row)]
+
     
-    row = random.randint(minRow, maxRow)
-    col = random.randint(minCol, maxCol)
+    def printImageArray(self):
+        print('row: ' + str(self.row))   # show row size
+        print('col: ' + str(self.col))   # show col size
 
-    imageArray = [[0 for i in range(col)] for i in range(row)]
+        sizeText = str(self.row) + ' * ' + str(self.col)
+        print(sizeText)
 
-    row = len(imageArray)
-    col = len(imageArray[0])
-
-    print('row: ' + str(row))   # show row size
-    print('col: ' + str(col))   # show col size
-
-    sizeText = str(row) + ' * ' + str(col)
-    print(sizeText)
-
-    for i in range(row):
-        for j in range(col):
-            print('O', end=' ')
-        print()
-
-#TODO: serprate generateImageArray
-#def printImageArray():
-        
+        for i in range(self.row):
+            for j in range(self.col):
+                print('O', end=' ')
+            print()          
