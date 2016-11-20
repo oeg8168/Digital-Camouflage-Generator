@@ -14,6 +14,10 @@ class ImageArray:
 
         self.imageArray = [[1 for i in range(self.col)] for i in range(self.row)]
 
+
+    def __setitem__(self, index, value):
+        self.imageArray[index[0]][index[1]] = value
+
         
     def printImageArray(self):
         print('row: ' + str(self.row))   # show row size
@@ -26,4 +30,4 @@ class ImageArray:
             for j in range(self.col):
                 print(self.imageArray[i][j], end=' ')
             print()
-            
+    
