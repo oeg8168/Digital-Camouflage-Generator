@@ -31,4 +31,6 @@ class ImageArray:
         for i in range(self.row):
             for j in range(self.col):
                 print(self.imageArray[i][j], end=' ')
-            print()    
+            print()
+        print()
+        
