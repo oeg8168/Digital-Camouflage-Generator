@@ -33,4 +33,10 @@ class ImageArray:
                 print(self.imageArray[i][j], end=' ')
             print()
         print()
-        
+
+
+    def save(self, path):
+        pass
+
+    def flattenImageArray(self):
+        pass
