@@ -24,7 +24,7 @@ def dissolveFromTop(inputImageArray):
     
     for i in range(inputImageArray.col):
         for j in range(depth[i]):
-            inputImageArray[j, i] = ' '
+            inputImageArray[j, i] = 0
 
 def dissolveFromBottom(inputImageArray):
     depth = randomDepthVertical(inputImageArray)
@@ -34,7 +34,7 @@ def dissolveFromBottom(inputImageArray):
 
     for i in range(inputImageArray.col):
         for j in range(depth[i]):
-            inputImageArray[inputImageArray.row-1-j, i] = ' '
+            inputImageArray[inputImageArray.row-1-j, i] = 0
 
 def dissolveFromLeft(inputImageArray):
     depth = randomDepthHorizontal(inputImageArray)
@@ -44,7 +44,7 @@ def dissolveFromLeft(inputImageArray):
 
     for i in range(inputImageArray.row):
         for j in range(depth[i]):
-            inputImageArray[i, j] = ' '
+            inputImageArray[i, j] = 0
 
 def dissolveFromRight(inputImageArray):
     depth = randomDepthHorizontal(inputImageArray)
@@ -54,7 +54,7 @@ def dissolveFromRight(inputImageArray):
 
     for i in range(inputImageArray.row):
         for j in range(depth[i]):
-            inputImageArray[i, inputImageArray.col-1-j] = ' '
+            inputImageArray[i, inputImageArray.col-1-j] = 0
 
 
 def randomDepthVertical(inputImageArray):
