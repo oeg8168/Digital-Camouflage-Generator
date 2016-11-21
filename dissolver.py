@@ -59,12 +59,32 @@ def dissolveFromRight(inputImageArray):
 
 def randomDepthVertical(inputImageArray):
     maxDepth = math.floor(inputImageArray.row/3)
-    depth = [random.randint(0, maxDepth) for i in range(inputImageArray.col)]
+    #depth = [random.randint(0, maxDepth) for i in range(inputImageArray.col)]
+    depth = [random.randint(0, maxDepth)]
+    
+    for i in range(inputImageArray.col):
+        newStep = random.randint(-2, 2)
+        newElement = depth[i] + newStep
+        if newElement < 0:
+            depth.append(0)
+        else:
+            depth.append(newElement)
+
     return depth
 
 def randomDepthHorizontal(inputImageArray):
     maxDepth = math.floor(inputImageArray.col/3)
-    depth = [random.randint(0, maxDepth) for i in range(inputImageArray.row)]
+    #depth = [random.randint(0, maxDepth) for i in range(inputImageArray.row)]
+    depth = [random.randint(0, maxDepth)]
+    
+    for i in range(inputImageArray.row):
+        newStep = random.randint(-2, 2)
+        newElement = depth[i] + newStep
+        if newElement < 0:
+            depth.append(0)
+        else:
+            depth.append(newElement)
+
     return depth
 
 def printDissolveInfo(direction, depth):
