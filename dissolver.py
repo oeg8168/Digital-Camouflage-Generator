@@ -58,34 +58,43 @@ def dissolveFromRight(inputImageArray):
 
 
 def randomDepthVertical(inputImageArray):
-    maxDepth = math.floor(inputImageArray.row/3)
-    #depth = [random.randint(0, maxDepth) for i in range(inputImageArray.col)]
-    depth = [random.randint(0, maxDepth)]
+    maxStartPoint = math.floor(inputImageArray.row/3)
+    startPoint = random.randint(0, maxStartPoint)
+    depth = [startPoint]
     
     for i in range(inputImageArray.col):
-        newStep = random.randint(-2, 2)
+        newStep = getStep()
         newElement = depth[i] + newStep
         if newElement < 0:
             depth.append(0)
+        elif newElement > inputImageArray.row:
+            depth.append(inputImageArray.row)
         else:
             depth.append(newElement)
 
     return depth
 
 def randomDepthHorizontal(inputImageArray):
-    maxDepth = math.floor(inputImageArray.col/3)
-    #depth = [random.randint(0, maxDepth) for i in range(inputImageArray.row)]
-    depth = [random.randint(0, maxDepth)]
+    maxStartPoint = math.floor(inputImageArray.col/3)
+    startPoint = random.randint(0, maxStartPoint)
+    depth = [startPoint]
     
     for i in range(inputImageArray.row):
-        newStep = random.randint(-2, 2)
+        newStep = getStep()
         newElement = depth[i] + newStep
         if newElement < 0:
             depth.append(0)
+        elif newElement > inputImageArray.col:
+            depth.append(inputImageArray.col)
         else:
             depth.append(newElement)
 
     return depth
+
+
+def getStep(ruggedness = 2):
+    return random.randint(-1*ruggedness, 1*ruggedness)
+
 
 def printDissolveInfo(direction, depth):
     print(direction)
