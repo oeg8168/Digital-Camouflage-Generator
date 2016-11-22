@@ -39,4 +39,9 @@ class ImageArray:
         pass
 
     def flattenImageArray(self):
-        pass
+        flatImageArray = []
+        for sublist in self.imageArray:
+            for item in sublist:
+                flatImageArray.append(item)
+
+        return flatImageArray
