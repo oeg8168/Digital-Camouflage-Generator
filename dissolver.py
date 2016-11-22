@@ -65,12 +65,8 @@ def randomDepthVertical(inputImageArray):
     for i in range(inputImageArray.col):
         newStep = getStep()
         newElement = depth[i] + newStep
-        if newElement < 0:
-            depth.append(0)
-        elif newElement > inputImageArray.row:
-            depth.append(inputImageArray.row)
-        else:
-            depth.append(newElement)
+        newElement = keepDepthWithinRange(newElement, inputImageArray.row)
+        depth.append(newElement)
 
     return depth
 
@@ -82,14 +78,19 @@ def randomDepthHorizontal(inputImageArray):
     for i in range(inputImageArray.row):
         newStep = getStep()
         newElement = depth[i] + newStep
-        if newElement < 0:
-            depth.append(0)
-        elif newElement > inputImageArray.col:
-            depth.append(inputImageArray.col)
-        else:
-            depth.append(newElement)
+        newElement = keepDepthWithinRange(newElement, inputImageArray.col)
+        depth.append(newElement)
 
     return depth
+
+
+def keepDepthWithinRange(element, bound):
+    if element < 0:
+        element = 0
+    elif element > bound:
+        element = bound
+
+    return element
 
 
 def getStep(ruggedness = 2):
