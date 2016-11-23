@@ -21,7 +21,7 @@ class ImageArray:
         self.imageArray[index[0]][index[1]] = value
 
     def setColor(self, color):
-        pass
+        self.color = color
 
     def printImageArraySize(self):
         print('row: ' + str(self.row))   # show row size
@@ -30,7 +30,7 @@ class ImageArray:
         sizeText = str(self.row) + ' * ' + str(self.col)
         print(sizeText)
 
-        
+
     def printImageArray(self):
         for i in range(self.row):
             for j in range(self.col):
@@ -39,12 +39,12 @@ class ImageArray:
         print()
 
 
-
     def saveToPNG(self, path='out.png'):
         img = Image.new("LA", (self.col, self.row))
         imgDataList = [(self.color, 255*i) for i in self.flattenImageArray()]
         img.putdata(imgDataList)
         img.save(path)     
+
 
     def flattenImageArray(self):
         flatImageArray = []
