@@ -12,7 +12,8 @@ class ImageArray:
     def __init__(self):
         self.row = random.randint(minRow, maxRow)
         self.col = random.randint(minCol, maxCol)
-        self.color = 0 #black in L mode
+        self.color = 0  # black in L mode
+        self.scaling = 3
 
         self.imageArray = [[1 for i in range(self.col)] for i in range(self.row)]
 
@@ -43,6 +44,7 @@ class ImageArray:
         img = Image.new("LA", (self.col, self.row))
         imgDataList = [(self.color, 255*i) for i in self.flattenImageArray()]
         img.putdata(imgDataList)
+        img = img.resize((self.scaling*self.col, self.scaling*self.row))
         img.save(path)     
 
 
