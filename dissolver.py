@@ -4,23 +4,23 @@ import math
 
 def dissolve(inputImageArray):
     dissolveFromTop(inputImageArray)
-    inputImageArray.printImageArray()
+    # inputImageArray.printImageArray()
 
     dissolveFromBottom(inputImageArray)
-    inputImageArray.printImageArray()
+    # inputImageArray.printImageArray()
 
     dissolveFromLeft(inputImageArray)
-    inputImageArray.printImageArray()
+    # inputImageArray.printImageArray()
 
     dissolveFromRight(inputImageArray)
-    inputImageArray.printImageArray()
+    # inputImageArray.printImageArray()
 
 
 def dissolveFromTop(inputImageArray):
     depth = randomDepthVertical(inputImageArray)
 
     # For test purpose
-    printDissolveInfo('Top', depth)
+    # printDissolveInfo('Top', depth)
     
     for i in range(inputImageArray.col):
         for j in range(depth[i]):
@@ -30,7 +30,7 @@ def dissolveFromBottom(inputImageArray):
     depth = randomDepthVertical(inputImageArray)
 
     # For test purpose
-    printDissolveInfo('Bottom', depth)
+    # printDissolveInfo('Bottom', depth)
 
     for i in range(inputImageArray.col):
         for j in range(depth[i]):
@@ -40,7 +40,7 @@ def dissolveFromLeft(inputImageArray):
     depth = randomDepthHorizontal(inputImageArray)
     
     # For test purpose
-    printDissolveInfo('Left', depth)
+    # printDissolveInfo('Left', depth)
 
     for i in range(inputImageArray.row):
         for j in range(depth[i]):
@@ -50,7 +50,7 @@ def dissolveFromRight(inputImageArray):
     depth = randomDepthHorizontal(inputImageArray)
     
     # For test purpose
-    printDissolveInfo('Right', depth)
+    # printDissolveInfo('Right', depth)
 
     for i in range(inputImageArray.row):
         for j in range(depth[i]):
