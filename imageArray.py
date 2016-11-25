@@ -41,11 +41,16 @@ class ImageArray:
 
 
     def saveToPNG(self, path='out.png'):
+        img = self.toImageObj()
+        img = img.resize((self.scaling*self.col, self.scaling*self.row))
+        img.save(path)
+
+
+    def toImageObj(self):
         img = Image.new("LA", (self.col, self.row))
         imgDataList = [(self.color, 255*i) for i in self.flattenImageArray()]
         img.putdata(imgDataList)
-        img = img.resize((self.scaling*self.col, self.scaling*self.row))
-        img.save(path)     
+        return img
 
 
     def flattenImageArray(self):
