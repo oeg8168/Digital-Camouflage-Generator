@@ -1,17 +1,18 @@
+import random
 from imageArray import *
 from dissolver import *
 
-class CamoImageFactory(object):
+class CamoImageFactory:
     
     def __init__(self):
-        pass
+        self.colorStep = 60
         
 
     def getCamoImage(self):
         camoImage = ImageArray()
         dissolve(camoImage)
         
-        color = random.randint(0, 3)
-        camoImage.setColor(60*color)
+        color = self.colorStep * random.randint(0, 3)
+        camoImage.setColor(color)
 
         return camoImage
