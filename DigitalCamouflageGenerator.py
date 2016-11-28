@@ -2,8 +2,7 @@ from camoImageFactory import *
 
 import random
 
-if __name__ == '__main__':
-
+def main():
     camoImageFactory = CamoImageFactory()
 
     canvasSize = (200, 200)
@@ -23,6 +22,9 @@ if __name__ == '__main__':
     
     canvas.save('output.png')
 
+
+if __name__ == '__main__':
+    main()
 
     '''
     for i in range(100):
