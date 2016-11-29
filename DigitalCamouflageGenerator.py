@@ -28,34 +28,38 @@ def main(argv):
 
 
 def parseArguments(argv):
-    
     try:
         opts, args = getopt.getopt(argv, 'w:h:n:o:')
+        width, height, camoImgNumber, outputFile = setArguments(opts)
     except getopt.GetoptError as e:
         print('error:', e)
         printUsage()
         exit(1)
+    except Exception as e:
+        print(e)
+        printUsage()
+        exit(1)    
+    
+    return width, height, camoImgNumber, outputFile
 
+
+def setArguments(opts):
     # defaults
     width, height = 200, 200
     camoImgNumber = 1000
     outputFile = 'output.png'
-
-    try:
-        for opt, arg in opts:
-            print(opt, arg)
-            if opt in '-w':
-                width = int(arg)
-            elif opt in '-h':
-                height = int(arg)
-            elif opt in '-n':
-                camoImgNumber = int(arg)
-            elif opt in '-o':
-                outputFile = arg
-    except Exception as e:
-        print(e)
-        exit(1)
     
+    for opt, arg in opts:
+        print(opt, arg)
+        if opt in '-w':
+            width = int(arg)
+        if opt in '-h':
+            height = int(arg)
+        if opt in '-n':
+            camoImgNumber = int(arg)
+        if opt in '-o':
+            outputFile = arg
+
     return width, height, camoImgNumber, outputFile
 
 
@@ -64,7 +68,7 @@ def printUsage():
     print('       [-w <width>] [-h <height>]')
     print('       [-n <numberOfCamo>] [-r <ruggedness>]')
     print('       [-o <outputFile>]')
-    
+   
 
 if __name__ == '__main__':
     main(sys.argv[1:])
